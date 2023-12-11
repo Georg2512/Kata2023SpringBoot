@@ -1,6 +1,8 @@
 package web.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -24,6 +26,10 @@ public class User {
 
     @Column(name = "salary")
     private int salary;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    @JoinTable(name = "roles", joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "roleId"))
+    private Set<Role> role = new HashSet<>();
 
     public Long getId() {
         return id;
