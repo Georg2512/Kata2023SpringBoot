@@ -57,11 +57,4 @@ public class UserController {
         return "edit";
     }
 
-    /*@RequestMapping(method = RequestMethod.PATCH,value = "/user/{id}/update")
-    public String updateUser(@ModelAttribute("id") Long id, Model model) {
-        User user = userService.getById(id);
-        model.addAttribute("user", user);
-        userService.saveUser(user);
-        return "user";
-    }*/
 }
