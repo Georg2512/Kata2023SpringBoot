@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Все пользователи</title>
+</head>
+<body>
+<h2 align="center">Панель администратора</h2>
+<table align="center" >
+    <thead>
+    <tr>
+        <th>Идентификатор</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Возраст</th>
+        <th>Права</th>
+        <th>Редактирование</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${allUser}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.surname}"></td>
+        <td th:text="${user.age}"></td>
+        <td>
+        <span th:each="role : ${user.getRoles()}">
+            <span th:text="${role.getName()}"></span>
+        </span>
+        </td>
+        <td><a th:href="@{admin/userUpdate/{id}(id=${user.id})}">
+            <input type="submit" value="Изменить"/></a>
+
+            <form th:method="POST" th:action="@{/admin/userDelete/{id}(id=${user.id})}">
+                <input type="hidden" name="_method" value="Удалить"/>
+                <button type="submit">Удалить</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+
+</table>
+    <a th:href="@{admin/userSave}">
+        <input  type="submit" value="Создать пользователя"/>
+    </a>
+    <br>
+    <a th:href="@{/login}">
+        <input  type="submit" value="Выход"/>
+    </a>
+
+
+</body>
+</html>

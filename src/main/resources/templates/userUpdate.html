@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Редактирование пользователя</title>
+</head>
+<body>
+<form action="#" th:action="@{/user/userUpdate}" th:object="${user}" method="post">
+    <label for="id">Идентификатор</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="Идентификатор">
+    <br/>
+    <label for="username">Имя:</label>
+    <input type="text" th:field="*{username}" id="username" placeholder="Имя">
+    <br/>
+    <br>
+    <label for="surname">Фамилия: </label>
+    <input type="text" th:field="*{surname}" id="surname">
+    <br>
+    <label for="age">Возраст: </label>
+    <input type="text" th:field="*{age}" id="age">
+    <br>
+    <label for="password">Пароль</label>
+    <input type="password" th:field="*{password}" id="password" placeholder="Пароль">
+    <br/>
+    <input type="submit" value="Применить изменения">
+    </br>
+    <a  th:href="@{/login}">
+        <input  type="submit" value="Назад"/>
+    </a>
+</form>
+</body>
+</html>
