@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменить пользователя</title>
+</head>
+<body>
+<form action="#" th:action="@{/admin/userUpdate}" th:object="${user}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="Идентификатор">
+    <br/>
+    <label for="username">Имя</label>
+    <input type="text" th:field="*{username}" id="username" placeholder="Имя">
+    <br/>
+    <label for="username">Фамилия</label>
+    <input type="text" th:field="*{surname}" id="surname" placeholder="Фамилия">
+    <br/>
+    <label for="username">Возраст</label>
+    <input type="text" th:field="*{age}" id="age" placeholder="Возраст">
+    <br/>
+    <label for="password">Пароль</label>
+    <input type="password" th:field="*{password}" id="password" placeholder="Пароль">
+    <br/>
+    <select name="nameRoles" multiple size="2">
+        <option th:each="role : ${roles}"
+                th:value="${role.name}"
+                th:text="${role.getName()}">
+        </option>
+    </select>
+    <br>
+    <input type="submit" value="Применить изменения">
+    </br>
+    <a  th:href="@{/login}">
+        <input  type="submit" value="Назад"/>
+    </a>
+</form>
+</body>
+</html>
