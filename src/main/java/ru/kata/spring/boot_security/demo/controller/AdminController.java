@@ -4,11 +4,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.RoleServiceImpl;
 import ru.kata.spring.boot_security.demo.service.UserServiceImpl;
 
+import java.security.Principal;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequiredArgsConstructor
@@ -19,9 +23,15 @@ public class AdminController {
 
 
     @GetMapping("/admin")
-    public String AllUsers(Model model) {
+    public String AllUsers(Model model, Principal principal) {
         List<User> user = userService.findAllUsers();
+        Long userId = userService.getUsernameByName(principal.getName());
+        User userRole = userService.findUserById(userId);
         model.addAttribute("allUser", user);
+        model.addAttribute("username", principal.getName());
+        model.addAttribute("role",userRole.getAllRolesString());
+       // model.addAttribute("user", new User());
+        //model.addAttribute("userData", userService.getUserByEmail(principal.getName()));
         return "admin";
     }
 

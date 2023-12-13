@@ -18,7 +18,7 @@ public interface UserService {
 
     void updateUser(User user);
 
-    Long getUsernameByName(String name);
+    Long getUsernameByName(String username);
 
     void getUserAndRoles(User user, String[] roles);
 

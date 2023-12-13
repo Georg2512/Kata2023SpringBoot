@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
 
     public User findUsersById(Long id) {
-        return userRepository.getOne(id);
+        return userRepository.getById(id);
     }
 
     public List<User> findAllUsers() {
@@ -73,8 +73,8 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     }
 
     @Override
-    public Long getUsernameByName(String name) {
-        User user = userRepository.findByUsername(name);
+    public Long getUsernameByName(String username) {
+        User user = userRepository.findByUsername(username);
         return user.getId();
     }
 

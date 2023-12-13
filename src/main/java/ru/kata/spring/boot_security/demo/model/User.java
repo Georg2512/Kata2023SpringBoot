@@ -25,9 +25,23 @@ public class User implements UserDetails {
     private int age;
     @Column
     private String surname;
+    public String getAllRolesString() {
+        StringBuilder allRolesString = new StringBuilder(new String());
+        String roleUser = "";
+        for (Role role: roles) {
+            roleUser = allRolesString
+                    .append(role.toString())
+                    .append(" ")
+                    .toString()
+                    .split(" ")[1]
+                    .replace("name=","")
+                    .replace(",","");
+        }
 
+        return roleUser;
+    }
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
