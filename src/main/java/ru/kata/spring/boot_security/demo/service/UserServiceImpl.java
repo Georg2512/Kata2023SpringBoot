@@ -50,6 +50,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void update(Long id, User user) {
         user.setId(id);
+        user.setPassword(passwordEncoder.encode(showUserById(id).getPassword()));
         userRepository.save(user);
     }
 
