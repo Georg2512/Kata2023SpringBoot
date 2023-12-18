@@ -20,6 +20,7 @@ import java.util.*;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserDetailsService, UserService {
 
+
     private final UserRepository userRepository;
     private final RoleService roleService;
     private final RoleRepository roleRepository;
@@ -68,10 +69,11 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     @Override
     @Transactional
     public void updateUser(User user) {
-        if(user.getPassword().equals("")) {
-            user.setPassword("");
+        if(user.getPassword().isEmpty()) {
+            user.setPassword(new BCryptPasswordEncoder().encode(user.getUsername()));
+        } else {
+            user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         }
-        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         userRepository.save(user);
     }
 
