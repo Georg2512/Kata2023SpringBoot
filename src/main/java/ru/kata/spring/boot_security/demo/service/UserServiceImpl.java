@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     @Transactional
     public void updateUser(User user) {
         if(user.getPassword().isEmpty()) {
-            user.setPassword(new BCryptPasswordEncoder().encode(user.getUsername()));
+            user.setPassword(findUsersById(user.getId()).getPassword());
         } else {
             user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         }
