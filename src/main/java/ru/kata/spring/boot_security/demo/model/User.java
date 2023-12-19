@@ -7,59 +7,68 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
-@Data
 @Entity
+@Data
 @Table(name = "users")
 public class User implements UserDetails {
     @Id
     @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
     private String username;
-    @Column
     private String password;
-    @Column
-    private int age;
-    @Column
-    private String surname;
-    public String getAllRolesString() {
-        StringBuilder allRolesString = new StringBuilder(new String());
-        String roleUser = "";
-        for (Role role: roles) {
-            roleUser = allRolesString
-                    .append(role.toString())
-                    .append(" ")
-                    .toString()
-                    .split(" ")[1]
-                    .replace("name=","")
-                    .replace(",","");
-        }
-
-        return roleUser;
-    }
-
+    private String firstName;
+    private String lastName;
+    private String email;
     @ManyToMany
-    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
+///конструкторы
     public User() {
     }
 
-    public User(String username, String password, Set<Role> roles, int age, String surname) {
+    public User(String username, String password, Set<Role> roles) {
         this.username = username;
         this.password = password;
         this.roles = roles;
-        this.age = age;
-        this.surname = surname;
     }
 
+    public User(String username, String password, String firstName, String lastName, String email) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
 
+    public User(String username, String password, String firstName, String lastName, String email, Set<Role> roles) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.roles = roles;
+    }
+
+    public User(Long id, String username, String password, String firstName, String lastName, String email, Set<Role> roles) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.roles = roles;
+    }
+    ///конструкторы
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getRoles();
+        return roles;
     }
 
     @Override
@@ -81,4 +90,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }
