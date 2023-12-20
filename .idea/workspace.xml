@@ -6,9 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="bbb1a0a2-52d3-4ca1-95e7-0126a24f5eab" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/kata/spring/boot_security/demo/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/kata/spring/boot_security/demo/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/kata/spring/boot_security/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/kata/spring/boot_security/demo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/editUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/editUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/kata/spring/boot_security/demo/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/kata/spring/boot_security/demo/config/WebSecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ru/kata/spring/boot_security/demo/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/kata/spring/boot_security/demo/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/kata/spring/boot_security/demo/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/kata/spring/boot_security/demo/service/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/editUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/editUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +63,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Georgyi/Desktop/Kata2023SpringBoot-bootstrap",
+    "last_opened_file_path": "C:/Users/Georgyi/Desktop/Task-3.1.5-master",
     "nodejs_package_manager_path": "npm",
     "spring.configuration.checksum": "7e3a243e66b01669507087d96c56f184"
   }
@@ -97,7 +102,8 @@
       <option name="presentableId" value="Default" />
       <updated>1702976542025</updated>
       <workItem from="1702976544718" duration="130000" />
-      <workItem from="1702976688426" duration="11513000" />
+      <workItem from="1702976688426" duration="14046000" />
+      <workItem from="1703058131373" duration="3038000" />
     </task>
     <servers />
   </component>

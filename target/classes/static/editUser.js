@@ -12,7 +12,7 @@ function editUser() {
         let roles = [];
         for (let i = 0; i < formEdit.roles.options.length; i++) {
             if (formEdit.roles.options[i].selected) {
-                roles.push(formEdit.roles.options[i].text.replace('ROLE_', ''));
+                roles.push({id: form.roles.options[i].value, role: "ROLE_" + form.roles.options[i].text});
             }
         }
         fetch("adminApi/user/" + formEdit.id.value, {
@@ -27,7 +27,7 @@ function editUser() {
                 email: formEdit.email.value,
                 username: formEdit.username.value,
                 password: formEdit.password.value,
-                roles: roles
+                roles:roles
             })
         }).then(() => {
             $('#closeEdit').click();
