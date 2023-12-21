@@ -4,6 +4,8 @@ editUser();
 async function editModal(id) {
     const modal = new bootstrap.Modal(document.querySelector('#edit'));
     await openAndFillInTheModal(formEdit, modal, id);
+    formEdit.roles.options[1].selected=true;
+    formEdit.password.value;
 }
 
 function editUser() {
@@ -14,6 +16,8 @@ function editUser() {
             if (formEdit.roles.options[i].selected) {
                 roles.push({id: form.roles.options[i].value, role: "ROLE_" + form.roles.options[i].text});
             }
+
+
         }
         fetch("adminApi/user/" + formEdit.id.value, {
             method: 'PATCH',

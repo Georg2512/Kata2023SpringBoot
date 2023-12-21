@@ -1,8 +1,8 @@
 'use strict';
 
 let form = document.forms["create"];
+form.roles.options[1].selected=true;
 createNewUser()
-
 function createNewUser() {
     form.addEventListener("submit", ev => {
         ev.preventDefault();
